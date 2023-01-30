@@ -1,0 +1,21 @@
+*{
+    font-family: 'Epilogue', Times;
+}
+
+body{
+    padding: 15px;
+}
+
+a, input[type="submit"]{
+    text-decoration: none;
+    font-size: 1em;
+    background-color: blue;
+    color: #FFF;
+    border-radius: 5px;
+    border: hidden;
+    padding: 1px 6px
+}
+
+.hide{
+    display: none;
+}
