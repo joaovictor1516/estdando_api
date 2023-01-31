@@ -25,6 +25,15 @@ a:hover, input[type="submit"]:hover{
     opacity: 1;
 }
 
+a{
+    align-self: center;
+}
+
 .hide{
     display: none;
+}
+
+#posts-container{
+    display: flex;
+    flex-direction: column;
 }
