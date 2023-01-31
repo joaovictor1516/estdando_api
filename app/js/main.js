@@ -11,20 +11,20 @@ async function getAllPosts(){
 
     console.log(data);
 
-    loadingElements.classList.add("hide")
+    loadingElements.classList.add("hide");
 
     data.map((post) => {
         const div = document.createElement("div");
-        const tittle = document.createElement("h2");
+        const title = document.createElement("h2");
         const body = document.createElement("p");
         const link = document.createElement("a");
 
-        tittle.innerText = post.tittle;
+        title.innerText = post.title;
         body.innerText = post.body;
         link.innerText = "ler mais";
         link.setAttribute("href", `/post.html?id=${post.id}`);
 
-        div.appendChild(tittle);
+        div.appendChild(title);
         div.appendChild(body);
         div.appendChild(link);
         
