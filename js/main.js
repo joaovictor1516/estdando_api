@@ -1,6 +1,9 @@
 const url = "https://jsonplaceholder.typicode.com/posts",
 loadingElements = document.querySelector("#loading"),
-postsContainer = document.querySelector("#posts-container");
+postsContainer = document.querySelector("#posts-container"),
+postPage = document.querySelector("#post"),
+postContainer = document.querySelector("#post-container"),
+commentsContainer = document.querySelector("#comments-constainer");
 
 const urlSearchParametars = new URLSearchParams(window.location.search);
 const postId = urlSearchParametars.get("id");
@@ -33,8 +36,21 @@ async function getAllPosts(){
     })
 }
 
+async function getPost(id){
+    const [responsePosts, responseComments] = await Promise.all([
+        fetch(`${url}/${id}`),
+        fetch(`${url}/${id}/comments`)
+    ]);
+
+    const dataPost = await responsePosts.json();
+    const dataComments = await responseComments.json();
+
+    loadingElements.classList.add("hide");
+    postPage.classList.remove("hide");
+}
+
 if(!postId){
     getAllPosts();
 } else{
-    console.log(postId);
+    getPost(postId);
 }
