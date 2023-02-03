@@ -57,8 +57,8 @@ async function getPost(id){
     body.classList.add("bodyPost");
     div.classList.add("divPost");
 
-    title.innerText = dataPost.title;
-    body.innerText = dataPost.body;
+    title.innerText = "Título do post: " + dataPost.title;
+    body.innerText = "Post: " + dataPost.body;
 
     div.appendChild(title);
     div.appendChild(body);
@@ -77,9 +77,9 @@ async function getPost(id){
         name.classList.add("nameComments");
         div.classList.add("divComments");
 
-        body.innerText = comment.body;
-        email.innerText = comment.email;
-        name.innerText = comment.name;
+        body.innerText = "Comentário: " + comment.body;
+        email.innerText = "E-mail: " + comment.email;
+        name.innerText = "Nome: " + comment.name;
 
         div.appendChild(body);
         div.appendChild(email);
