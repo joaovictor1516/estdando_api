@@ -47,6 +47,46 @@ async function getPost(id){
 
     loadingElements.classList.add("hide");
     postPage.classList.remove("hide");
+
+    const title = document.createElement("h1");
+    const body = document.createElement("p");
+    const div = document.createElement("div");
+
+    //arrumar o css destas classes!!
+    title.classList.add("titlePost"); 
+    body.classList.add("bodyPost");
+    div.classList.add("divPost");
+
+    title.innerText = dataPost.title;
+    body.innerText = dataPost.body;
+
+    div.appendChild(title);
+    div.appendChild(body);
+
+    postContainer.appendChild(div);
+
+    dataComments.map((comment) => {
+        const body = document.createElement("p");
+        const email = document.createElement("p");
+        const name = document.createElement("p");
+        const div = document.createElement("div");
+
+        //arrumar o css destas classes!!
+        body.classList.add("bodyComments");
+        email.classList.add("emailComments");
+        name.classList.add("nameComments");
+        div.classList.add("divComments");
+
+        body.innerText = comment.body;
+        email.innerText = comment.email;
+        name.innerText = comment.name;
+
+        div.appendChild(body);
+        div.appendChild(email);
+        div.appendChild(name);
+
+        postContainer.appendChild(div);
+    })
 }
 
 if(!postId){
