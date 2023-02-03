@@ -81,9 +81,9 @@ async function getPost(id){
         email.innerText = "E-mail: " + comment.email;
         name.innerText = "Nome: " + comment.name;
 
-        div.appendChild(body);
+        div.appendChild(name); 
         div.appendChild(email);
-        div.appendChild(name);
+        div.appendChild(body);
 
         postContainer.appendChild(div);
     })
