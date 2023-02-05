@@ -52,7 +52,6 @@ async function getPost(id){
     const body = document.createElement("p");
     const div = document.createElement("div");
 
-    //arrumar o css destas classes!!
     title.classList.add("titlePost"); 
     body.classList.add("bodyPost");
     div.classList.add("divPost");
@@ -71,15 +70,14 @@ async function getPost(id){
         const name = document.createElement("p");
         const div = document.createElement("div");
 
-        //arrumar o css destas classes!!
         body.classList.add("bodyComments");
         email.classList.add("emailComments");
         name.classList.add("nameComments");
         div.classList.add("divComments");
 
         body.innerText = "Comentário: " + comment.body;
-        email.innerText = "E-mail: " + comment.email;
-        name.innerText = "Nome: " + comment.name;
+        email.innerText = comment.email;
+        name.innerText = comment.name;
 
         div.appendChild(name); 
         div.appendChild(email);
