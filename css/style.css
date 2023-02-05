@@ -13,8 +13,8 @@ body{
 a, input[type="submit"]{
     text-decoration: none;
     font-size: 1em;
-    background-color: #007BFF;
-    color: #FFF;
+    background-color: #007bff;
+    color: #fff;
     border-radius: 5px;
     border: none;
     padding: 10px 20px;
@@ -69,3 +69,23 @@ div{
     flex-direction: column;
     align-items: center;
 }
+
+.divComments, .divPost{
+    background-color: hsla(283, 85%, 34%, 0.714);
+    margin-bottom: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5px;
+    border-radius: 10px;
+}
+
+.divComments:hover, .divPost:hover{
+    box-shadow: 5px 5px #4f0367;
+    margin-bottom: 8px;
+}
+
+.bodyComments, .bodyPost{
+    text-align: left;
+}
+
