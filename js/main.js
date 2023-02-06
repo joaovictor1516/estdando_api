@@ -1,9 +1,15 @@
 const url = "https://jsonplaceholder.typicode.com/posts",
-loadingElements = document.querySelector("#loading"),
-postsContainer = document.querySelector("#posts-container"),
+loadingElements = document.querySelector("#loading");
+
+const postsContainer = document.querySelector("#posts-container"),
 postPage = document.querySelector("#post"),
-postContainer = document.querySelector("#post-container"),
-commentsContainer = document.querySelector("#comments-constainer");
+postContainer = document.querySelector("#post-container");
+
+const commentsContainer = document.querySelector("#comments-container"),
+commentForm = document.querySelector("#comment-form");
+
+const emailInput = document.querySelector("#email"),
+bodyInput = document.querySelector("#body");
 
 const urlSearchParametars = new URLSearchParams(window.location.search);
 const postId = urlSearchParametars.get("id");
@@ -65,30 +71,62 @@ async function getPost(id){
     postContainer.appendChild(div);
 
     dataComments.map((comment) => {
-        const body = document.createElement("p");
-        const email = document.createElement("p");
-        const name = document.createElement("p");
-        const div = document.createElement("div");
-
-        body.classList.add("bodyComments");
-        email.classList.add("emailComments");
-        name.classList.add("nameComments");
-        div.classList.add("divComments");
-
-        body.innerText = "Comentário: " + comment.body;
-        email.innerText = comment.email;
-        name.innerText = comment.name;
-
-        div.appendChild(name); 
-        div.appendChild(email);
-        div.appendChild(body);
-
-        postContainer.appendChild(div);
+        createComment(comment);
     })
+}
+
+function createComment(comment){
+    const body = document.createElement("p");
+    const email = document.createElement("p");
+    const name = document.createElement("p");
+    const div = document.createElement("div");
+
+    body.classList.add("bodyComments");
+    email.classList.add("emailComments");
+    name.classList.add("nameComments");
+    div.classList.add("divComments");
+
+    body.innerText = "Comentário: " + comment.body;
+    email.innerText = comment.email;
+    name.innerText = comment.name;
+
+    div.appendChild(name); 
+    div.appendChild(email);
+    div.appendChild(body);
+
+    commentsContainer.appendChild(div);
+}
+
+async function postComment(comment){
+    const response = await fetch(url, {
+        method: "POST",
+        body: comment,
+        headers: {
+            "content-type": "application/json"
+        }
+    });
+
+    const data = await response.json();
+
+    createComment(data);
+    console.log(data);
 }
 
 if(!postId){
     getAllPosts();
 } else{
     getPost(postId);
+
+    commentForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let comment = {
+            emai: emailInput.value,
+            body: bodyInput.value
+        };
+
+        comment = JSON.stringify(comment);
+
+        postComment(comment);
+    })
 }

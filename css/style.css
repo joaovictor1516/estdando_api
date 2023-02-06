@@ -71,7 +71,6 @@ div{
 }
 
 .divComments, .divPost{
-    background-color: #5912a1a8;
     margin-bottom: 3px;
     display: flex;
     flex-direction: column;
@@ -82,12 +81,24 @@ div{
 }
 
 .divComments:hover, .divPost:hover{
-    box-shadow: 8px 8px #5912a1f9;
     margin-bottom: 11px;
 }
 
 .divPost{
+    background-color: #607df3b6;
     margin-top: 3px;
+}
+
+.divPost:hover{
+    box-shadow: 8px 8px #607ef3;
+}
+
+.divComments{
+    background-color: #1453b8c1;
+}
+
+.divComments:hover{
+    box-shadow: 8px 8px #1453b8;
 }
 
 .bodyComments, .bodyPost{
