@@ -55,7 +55,6 @@ div{
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: space-around;
     margin: 5px;
 }
 
@@ -84,7 +83,24 @@ div{
     box-shadow: 5px 5px #4f0367;
     margin-bottom: 8px;
 }
+
+.divPost{
+    margin-top: 3px;
+}
+
 .bodyComments, .bodyPost{
     text-align: left;
 }
+.emailComments{
+    background-image: url(../img/email.png);
+}
 
+.nameComments{
+    background-image: url(../img/user.png);
+}
+
+.emailComments, .nameComments{
+    background-repeat: no-repeat;
+    background-position: left;
+    padding: 0 20px;
+}
