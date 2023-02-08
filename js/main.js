@@ -9,6 +9,7 @@ const commentsContainer = document.querySelector("#comments-container"),
 commentForm = document.querySelector("#comment-form");
 
 const emailInput = document.querySelector("#email"),
+nameInput = document.querySelector("#usuario"),
 bodyInput = document.querySelector("#body");
 
 const urlSearchParametars = new URLSearchParams(window.location.search);
@@ -120,12 +121,17 @@ if(!postId){
         e.preventDefault();
 
         let comment = {
-            emai: emailInput.value,
+            name: nameInput.value,
+            email: emailInput.value,
             body: bodyInput.value
         };
 
         comment = JSON.stringify(comment);
 
         postComment(comment);
+
+        nameInput.innerText = "";
+        emailInput.innerText = "";
+        bodyInput.innerText = "";
     })
 }
