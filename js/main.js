@@ -130,8 +130,6 @@ if(!postId){
 
         postComment(comment);
 
-        nameInput.innerText = "";
-        emailInput.innerText = "";
-        bodyInput.innerText = "";
+        bodyInput.value = "";
     })
 }
